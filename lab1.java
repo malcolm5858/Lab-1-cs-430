@@ -1,12 +1,12 @@
 class Lab1 {
-    public int[] unsorted;
-    public int[] mergeResult;
-    public int[] insertionResult;
-    public double mergeTime;
-    public double insertionTime;
+    public static int[] unsorted;
+    public static int[] mergeResult;
+    public static int[] insertionResult;
+    public static double mergeTime;
+    public static double insertionTime;
 
 
-    double[] run(int arraySize) {
+    public static double[] run(int arraySize) {
         unsorted = randomize(arraySize);
         insertionResult = unsorted;
         mergeResult = unsorted;
@@ -22,11 +22,11 @@ class Lab1 {
         return new double[]{insertionTime, mergeTime};
     }
 
-    int[] randomize(int arraysize) {
+    static int[] randomize(int arraysize) {
         return null;
     }
 
-    void merge (int[] array, int start, int split, int end) { //start index, index beginning the second array, and index after the end of the second array
+    static void merge (int[] array, int start, int split, int end) { //start index, index beginning the second array, and index after the end of the second array
         int[] a = new int[split - start];
         int[] b = new int[end - split];
 
@@ -51,7 +51,7 @@ class Lab1 {
         }
     }
 
-    void mergeSort(int[] array, int start, int end) {
+    static void mergeSort(int[] array, int start, int end) {
         if (start < end) {
             int split = (start + end) / 2;
             mergeSort(array, start, split);
@@ -60,7 +60,9 @@ class Lab1 {
         }
     }
 
-    void insertionSort(int[] array) {
-        
+    static void insertionSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            
+        }
     }
 }
