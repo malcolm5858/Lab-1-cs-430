@@ -1,32 +1,76 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-class gui {
-    public static void main(String args[]) {
+class gui extends JPanel implements ActionListener {
+    protected JLabel mergeTimer, insertionTimer;
 
-        // Creating the Frame
-        JFrame frame = new JFrame("Chat Frame");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-
+    public gui() {
         // Creating the panel at bottom and adding components
+        this.setLayout(new BorderLayout());
         JPanel panel = new JPanel(); // the panel is not visible in output
-        JLabel label = new JLabel("Enter Text");
-        JTextField tf = new JTextField(10); // accepts upto 10 characters
-        JButton send = new JButton("Send");
-        JButton reset = new JButton("Reset");
-        panel.add(label); // Components Added using Flow Layout
-        panel.add(tf);
-        panel.add(send);
-        panel.add(reset);
+        JButton start = new JButton("Start");
+        JPanel panel2 = new JPanel();
+        JPanel timePanel = new JPanel();
+        JLabel mergeSort = new JLabel("Merge Sort     ");
+        JLabel insertionSort = new JLabel("    Insertion Sort");
+        JLabel BlankSpace = new JLabel("                        ");
+        mergeTimer = new JLabel("0 ms");
+        insertionTimer = new JLabel("0 ms");
 
-        // Text Area at the Center
-        JTextArea ta = new JTextArea();
+        start.setActionCommand("Go");
+        start.addActionListener(this);
+
+        mergeTimer.setFont(new Font("Verdana", Font.PLAIN, 30));
+        insertionTimer.setFont(new Font("Verdana", Font.PLAIN, 30));
+
+        panel.add(start);
+        panel2.add(mergeSort);
+        panel2.add(BlankSpace);
+        panel2.add(insertionSort);
+        timePanel.add(mergeTimer);
+        timePanel.add(BlankSpace);
+        timePanel.add(insertionTimer);
 
         // Adding Components to the frame.
-        frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.NORTH, mb);
-        frame.getContentPane().add(BorderLayout.CENTER, ta);
+        add(BorderLayout.SOUTH, panel);
+        add(BorderLayout.NORTH, panel2);
+        add(BorderLayout.CENTER, timePanel);
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if ("Go".equals(e.getActionCommand())) {
+            mergeTimer.setText("Test");
+
+        }
+    }
+
+    private static void createAndShowGUI() {
+
+        // Create and set up the window.
+        JFrame frame = new JFrame("Lab1 Sorting");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+
+        // Create and set up the content pane.
+        gui newContentPane = new gui();
+        newContentPane.setOpaque(true); // content panes must be opaque
+        frame.setContentPane(newContentPane);
+
+        // Display the window.
+        frame.pack();
         frame.setVisible(true);
     }
+
+    public static void main(String[] args) {
+        // Schedule a job for the event-dispatching thread:
+        // creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+    }
+
 }
