@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class lab1 {
     public static int[] unsorted;
     public static int[] mergeResult;
@@ -11,19 +13,32 @@ public class lab1 {
         insertionResult = unsorted;
         mergeResult = unsorted;
 
+        System.out.println(unsorted);
+
         long start = System.currentTimeMillis();
         insertionSort(insertionResult);
         insertionTime = System.currentTimeMillis() - start;
         
+        System.out.println(insertionResult);
+
         start = System.currentTimeMillis();
         mergeSort(mergeResult, 0, arraySize);
         mergeTime = System.currentTimeMillis() - start;
+
+        System.out.println(mergeResult);
 
         return new double[]{insertionTime, mergeTime};
     }
 
     static int[] randomize(int arraysize) {
-        return null;
+        Random r = new Random();
+
+        int[] array = new int[arraysize];
+        for (int i = 0; i < arraysize; i++) {
+            array[i] = r.nextInt();
+        }
+
+        return array;
     }
 
     static void merge (int[] array, int start, int split, int end) { //start index, index beginning the second array, and index after the end of the second array
