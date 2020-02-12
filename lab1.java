@@ -17,7 +17,7 @@ class Lab1 {
         mergeSort();
         mergeTime = System.currentTimeMillis() - start;
 
-        return [insertionTime, mergeTime];
+        return new double[]{insertionTime, mergeTime};
     }
 
     int[] randomize(int arraysize) {
