@@ -8,13 +8,15 @@ class Lab1 {
 
     double[] run(int arraySize) {
         unsorted = randomize(arraySize);
-        
+        insertionResult = unsorted;
+        mergeResult = unsorted;
+
         long start = System.currentTimeMillis();
-        insertionSort();
+        insertionSort(insertionResult);
         insertionTime = System.currentTimeMillis() - start;
         
         start = System.currentTimeMillis();
-        mergeSort();
+        mergeSort(mergeResult, 0, arraySize);
         mergeTime = System.currentTimeMillis() - start;
 
         return new double[]{insertionTime, mergeTime};
@@ -49,11 +51,16 @@ class Lab1 {
         }
     }
 
-    void mergeSort() {
-
+    void mergeSort(int[] array, int start, int end) {
+        if (start < end) {
+            int split = (start + end) / 2;
+            mergeSort(array, start, split);
+            mergeSort(array, split, end);
+            merge(array, start, split, end);
+        }
     }
 
-    void insertionSort() {
+    void insertionSort(int[] array) {
         
     }
 }
