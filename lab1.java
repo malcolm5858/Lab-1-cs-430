@@ -1,32 +1,36 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class lab1 {
     public static int[] unsorted;
     public static int[] mergeResult;
     public static int[] insertionResult;
-    public static double mergeTime;
-    public static double insertionTime;
+    public static long mergeTime;
+    public static long insertionTime;
 
-    public static double[] run(int arraySize) {
+    public static long[] run(int arraySize) {
         unsorted = randomize(arraySize);
         insertionResult = unsorted;
         mergeResult = unsorted;
 
-        System.out.println(unsorted);
+        System.out.println(Arrays.toString(unsorted));
 
         long start = System.currentTimeMillis();
         insertionSort(insertionResult);
         insertionTime = System.currentTimeMillis() - start;
 
-        System.out.println(insertionResult);
+        System.out.println(Arrays.toString(insertionResult));
 
         start = System.currentTimeMillis();
         mergeSort(mergeResult, 0, arraySize);
         mergeTime = System.currentTimeMillis() - start;
 
-        System.out.println(mergeResult);
+        System.out.println(Arrays.toString(mergeResult));
 
-        return new double[] { insertionTime, mergeTime };
+        System.out.println(insertionTime);
+        System.out.println(mergeTime);
+
+        return new long[] { insertionTime, mergeTime };
     }
 
     static int[] randomize(int arraysize) {
