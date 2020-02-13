@@ -15,8 +15,8 @@ class gui extends JPanel implements ActionListener {
         JLabel mergeSort = new JLabel("Merge Sort     ");
         JLabel insertionSort = new JLabel("    Insertion Sort");
         JLabel BlankSpace = new JLabel("                     ");
-        mergeTimer = new JLabel("0 ns");
-        insertionTimer = new JLabel("0 ns");
+        mergeTimer = new JLabel("0 ms");
+        insertionTimer = new JLabel("0 ms");
 
         start.setActionCommand("Go");
         start.addActionListener(this);
@@ -42,9 +42,9 @@ class gui extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Processes acton when the start button is pressed
         if ("Go".equals(e.getActionCommand())) {
-            long[] values = lab1.run(10);
-            mergeTimer.setText(values[1] + " ns");
-            insertionTimer.setText(values[0] + " ns");
+            long[] values = lab1.run(1000);
+            mergeTimer.setText(values[1] + " ms");
+            insertionTimer.setText(values[0] + " ms");
 
         }
     }
@@ -54,7 +54,7 @@ class gui extends JPanel implements ActionListener {
         // Create and set up the window.
         JFrame frame = new JFrame("Lab1 Sorting");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
+        frame.setSize(600, 200);
 
         // Create and set up the content pane.
         gui newContentPane = new gui();
