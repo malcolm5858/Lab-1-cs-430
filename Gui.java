@@ -42,7 +42,7 @@ class gui extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Processes acton when the start button is pressed
         if ("Go".equals(e.getActionCommand())) {
-            double[] values = lab1.run(10);
+            long[] values = lab1.run(10);
             mergeTimer.setText(values[1] + " ms");
             insertionTimer.setText(values[0] + " ms");
 
