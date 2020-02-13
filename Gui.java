@@ -48,9 +48,11 @@ class gui extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Processes acton when the start button is pressed
         if ("Go".equals(e.getActionCommand())) {
-            int arraySize = Integer.parseInt(sizeInput.getText());
-            if (arraySize == 0) {
+            int arraySize = 0;
+            if (sizeInput.getText().equals("")) {
                 arraySize = 100;
+            } else {
+                arraySize = Integer.parseInt(sizeInput.getText());
             }
             long[] values = lab1.run(arraySize);
             mergeTimer.setText(values[1] + " ms");
