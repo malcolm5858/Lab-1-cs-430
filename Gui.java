@@ -3,13 +3,17 @@ import java.awt.*;
 import java.awt.event.*;
 
 class gui extends JPanel implements ActionListener {
+    // adding label and textfield that have to be changed when you hit the start
+    // button
     protected JLabel mergeTimer, insertionTimer;
     protected JTextField sizeInput;
 
     public gui() {
         // Creating the panel at bottom and adding components
+        // setting the layout of the class gui
         this.setLayout(new BorderLayout());
-        JPanel panel = new JPanel(); // the panel is not visible in output
+        // creating the panels buttons and labels for the gui
+        JPanel panel = new JPanel();
         JButton start = new JButton("Start");
         JPanel panel2 = new JPanel();
         JPanel panel3 = new JPanel();
@@ -21,6 +25,7 @@ class gui extends JPanel implements ActionListener {
         mergeTimer = new JLabel("0 ms");
         insertionTimer = new JLabel("0 ms");
         sizeInput = new JTextField(9);
+        // adding
         start.setActionCommand("Go");
         start.addActionListener(this);
 
