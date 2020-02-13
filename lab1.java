@@ -15,15 +15,15 @@ public class lab1 {
 
         System.out.println(Arrays.toString(unsorted));
 
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         insertionSort(insertionResult);
-        insertionTime = System.currentTimeMillis() - start;
+        insertionTime = System.nanoTime() - start;
 
         System.out.println(Arrays.toString(insertionResult));
 
-        start = System.currentTimeMillis();
+        start = System.nanoTime();
         mergeSort(mergeResult, 0, arraySize);
-        mergeTime = System.currentTimeMillis() - start;
+        mergeTime = System.nanoTime() - start;
 
         System.out.println(Arrays.toString(mergeResult));
 
