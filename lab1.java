@@ -7,7 +7,6 @@ public class lab1 {
     public static double mergeTime;
     public static double insertionTime;
 
-
     public static double[] run(int arraySize) {
         unsorted = randomize(arraySize);
         insertionResult = unsorted;
@@ -18,7 +17,7 @@ public class lab1 {
         long start = System.currentTimeMillis();
         insertionSort(insertionResult);
         insertionTime = System.currentTimeMillis() - start;
-        
+
         System.out.println(insertionResult);
 
         start = System.currentTimeMillis();
@@ -27,7 +26,7 @@ public class lab1 {
 
         System.out.println(mergeResult);
 
-        return new double[]{insertionTime, mergeTime};
+        return new double[] { insertionTime, mergeTime };
     }
 
     static int[] randomize(int arraysize) {
@@ -41,7 +40,8 @@ public class lab1 {
         return array;
     }
 
-    static void merge (int[] array, int start, int split, int end) { //start index, index beginning the second array, and index after the end of the second array
+    static void merge(int[] array, int start, int split, int end) { // start index, index beginning the second array,
+                                                                    // and index after the end of the second array
         int[] a = new int[split - start];
         int[] b = new int[end - split];
 
@@ -58,8 +58,7 @@ public class lab1 {
             if (ai == a.length || a[ai] > b[bi]) {
                 array[i] = b[bi];
                 bi++;
-            }
-            else if (bi == b.length || a[ai] <= b[bi]) {
+            } else if (bi == b.length || a[ai] <= b[bi]) {
                 array[i] = a[ai];
                 ai++;
             }
@@ -67,7 +66,7 @@ public class lab1 {
     }
 
     static void mergeSort(int[] array, int start, int end) {
-        if (start < end) {
+        if (start < end - 1) {
             int split = (start + end) / 2;
             mergeSort(array, start, split);
             mergeSort(array, split, end);
@@ -78,12 +77,11 @@ public class lab1 {
     static void insertionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = i; j > 0; j--) {
-                if (array[j] < array[j-1]) {
+                if (array[j] < array[j - 1]) {
                     int temp = array[j];
-                    array[j] = array[j-1];
-                    array[j-1] = temp;
-                }
-                else {
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                } else {
                     break;
                 }
             }
