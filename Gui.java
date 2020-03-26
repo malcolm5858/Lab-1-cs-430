@@ -6,7 +6,7 @@ import java.awt.event.*;
 class gui extends JPanel implements ActionListener {
     // adding label and textfield that have to be changed when you hit the start
     // button
-    protected JLabel mergeTimer, insertionTimer;
+    protected JLabel countingTimer, radixTimer;
     protected JTextField sizeInput;
 
     public gui() {
@@ -19,33 +19,33 @@ class gui extends JPanel implements ActionListener {
         JPanel panel2 = new JPanel();
         JPanel panel3 = new JPanel();
         JPanel timePanel = new JPanel();
-        JLabel mergeSort = new JLabel("Merge Sort     ");
-        JLabel insertionSort = new JLabel("    Insertion Sort");
+        JLabel countingSort = new JLabel("Counting Sort    ");
+        JLabel heapSort = new JLabel("    Radix Sort");
         JLabel BlankSpace = new JLabel("                     ");
         JLabel arrayText = new JLabel("Enter array size");
-        mergeTimer = new JLabel("0 ms");
-        insertionTimer = new JLabel("0 ms");
+        countingTimer = new JLabel("0 ms");
+        radixTimer = new JLabel("0 ms");
         sizeInput = new JTextField(9);
         // adding listener to the button so we can run our algorithms when the button is
         // pressed
         start.setActionCommand("Go");
         start.addActionListener(this);
         // changing the font on the timers to make it easier to read
-        mergeTimer.setFont(new Font("Verdana", Font.PLAIN, 30));
-        insertionTimer.setFont(new Font("Verdana", Font.PLAIN, 30));
+        countingTimer.setFont(new Font("Verdana", Font.PLAIN, 30));
+        radixTimer.setFont(new Font("Verdana", Font.PLAIN, 30));
         // making the layout for the start button and input box panel so the go above
         // and below each other
         panel.setLayout(new BorderLayout());
         // adding all the labels input boxes and buttons to there correct panel
         panel.add(start);
-        panel2.add(mergeSort);
+        panel2.add(countingSort);
         panel2.add(BlankSpace);
-        panel2.add(insertionSort);
+        panel2.add(heapSort);
         panel3.add(arrayText);
         panel3.add(sizeInput);
-        timePanel.add(mergeTimer);
+        timePanel.add(countingTimer);
         timePanel.add(BlankSpace);
-        timePanel.add(insertionTimer);
+        timePanel.add(radixTimer);
 
         // Adding Panels to there frames
         panel.add(BorderLayout.NORTH, panel3);
@@ -65,11 +65,11 @@ class gui extends JPanel implements ActionListener {
             } else {
                 arraySize = Integer.parseInt(sizeInput.getText());
             }
-            // Getting times returned from the run function in lab1
-            long[] values = lab1.run(arraySize);
+            // Getting times returned from the run function in Lab3
+            long[] values = Lab4.run(arraySize);
             // displaying the times on the gui
-            mergeTimer.setText(values[1] + " ms");
-            insertionTimer.setText(values[0] + " ms");
+            countingTimer.setText(values[1] + " ms");
+            radixTimer.setText(values[0] + " ms");
 
         }
     }
@@ -77,7 +77,7 @@ class gui extends JPanel implements ActionListener {
     private static void createAndShowGUI() {
 
         // Create and set up the window.
-        JFrame frame = new JFrame("Lab1 Sorting");
+        JFrame frame = new JFrame("Lab4 Sorting");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Set the size of the window to start out with
         frame.setPreferredSize(new Dimension(1000, 200));
