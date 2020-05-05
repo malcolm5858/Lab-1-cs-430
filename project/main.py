@@ -1,7 +1,7 @@
 # Team Yamaha piano: Malcolm Machesky seatNo: 45 CWID: A20414760, Adrian Kirchner seatNo: 34 CWID: A20425060
 
 # HOW TO RUN:
-# python3 Main.py
+# python3 main.py
 
 
 from heapq import *
